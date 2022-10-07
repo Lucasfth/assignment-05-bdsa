@@ -57,78 +57,55 @@ namespace GildedRose
 
         }
 
+        public void AlterQuality(Item item, int qualityChange)
+        {
+            item.Quality += qualityChange;
+            if (item.Quality > 50)
+            {
+                item.Quality = 50;
+            }
+            if (item.Quality < 0)
+            {
+                item.Quality = 0;
+            }
+        }
+
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                var legendary = item.Name =="Sulfuras, Hand of Ragnaros";
+                var expired = false;
+                if(!legendary)
                 {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
+                    item.SellIn--;
+                    expired = item.SellIn<0;
                 }
-                else
+                switch (item.Name)
                 {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name != "Aged Brie")
-                    {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
+                    case "Aged Brie":
+                        AlterQuality(item, expired ? 2 : 1);
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                        if (expired) item.Quality = 0;
                         else
                         {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
+                            var qualityChange = 1;
+                            if (item.SellIn < 5) qualityChange = 3;
+                            else if (item.SellIn < 10) qualityChange = 2;
+                            AlterQuality(item, qualityChange);
                         }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
+                    break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        // do nothing
+                    break;
+                    case "Conjuring Mana Cake":
+                        AlterQuality(item, expired ? -4 : -2);
+                    break;
+                    default:
+                        AlterQuality(item, expired ? -2 : -1);
+                    break;
+                    
                 }
             }
         }
