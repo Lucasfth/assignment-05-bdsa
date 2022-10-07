@@ -54,6 +54,23 @@ public class ProgramTests
     }
 
     [Fact]
+    public void Aged_Brie_Increases_By_2_Quality_When_Expired()
+    {
+        // Arrange
+        var items = new Item { Name = "Aged Brie", SellIn = 0, Quality = 20 };
+        var np = new Program();
+        np.Items = new List<Item> { items };
+
+        // Act
+        np.UpdateQuality();
+
+        // Assert
+        np.Items[0].Name.Should().Be("Aged Brie");
+        np.Items[0].SellIn.Should().Be(-1);
+        np.Items[0].Quality.Should().Be(22);
+    }
+
+    [Fact]
     public void Legendary_Item_Degrades_only_by_SellIn()
     {
         //Arrange
