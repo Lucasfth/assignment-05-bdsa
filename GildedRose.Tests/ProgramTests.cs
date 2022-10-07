@@ -35,4 +35,20 @@ public class ProgramTests
         np.Items[0].SellIn.Should().Be(9);
         np.Items[0].Quality.Should().Be(21);
     }
+    [Fact]
+    public void Legendary_Item_Degrades_only_by_SellIn()
+    {
+        //Arrange
+        var items = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 20, Quality = 80 };
+        var np = new Program();
+        np.Items = new List<Item> { items };
+        
+        //Act
+        np.UpdateQuality();
+        
+        //Assert
+        np.Items[0].Name.Should().Be("Sulfuras, Hand of Ragnaros");
+        np.Items[0].SellIn.Should().Be(20);
+        np.Items[0].Quality.Should().Be(80);
+    }
 }
