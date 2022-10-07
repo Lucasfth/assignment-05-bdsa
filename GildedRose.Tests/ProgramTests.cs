@@ -40,7 +40,7 @@ public class ProgramTests
     public void Legendary_Item_Degrades_only_by_SellIn()
     {
         //Arrange
-        var items = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 20, Quality = 80 };
+        var items = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
         var np = new Program();
         np.Items = new List<Item> { items };
         
@@ -49,7 +49,7 @@ public class ProgramTests
         
         //Assert
         np.Items[0].Name.Should().Be("Sulfuras, Hand of Ragnaros");
-        np.Items[0].SellIn.Should().Be(20);
+        np.Items[0].SellIn.Should().Be(0);
         np.Items[0].Quality.Should().Be(80);
 
     }
