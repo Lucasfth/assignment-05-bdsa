@@ -75,12 +75,10 @@ namespace GildedRose
             foreach (var item in Items)
             {
                 var legendary = item.Name =="Sulfuras, Hand of Ragnaros";
-                var expired = false;
-                if(!legendary)
-                {
-                    item.SellIn--;
-                    expired = item.SellIn<0;
-                }
+                if (legendary) return;
+
+                item.SellIn--;
+                var expired = item.SellIn<0;
                 switch (item.Name)
                 {
                     case "Aged Brie":
