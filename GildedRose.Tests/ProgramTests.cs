@@ -172,4 +172,38 @@ public class ProgramTests
         np.Items[0].SellIn.Should().Be(-1);
         np.Items[0].Quality.Should().Be(0);
     }
+
+    [Fact]
+    public void Conjured_Item_Degrades_By_2_Quality_When_Not_Expired()
+    {
+        // Arrange
+        var items = new Item { Name = "Conjuring Mana Cake", SellIn = 10, Quality = 20 };
+        var np = new Program();
+        np.Items = new List<Item> { items };
+
+        // Act
+        np.UpdateQuality();
+
+        // Assert
+        np.Items[0].Name.Should().Be("Conjuring Mana Cake");
+        np.Items[0].SellIn.Should().Be(9);
+        np.Items[0].Quality.Should().Be(18);
+    }
+
+    [Fact]
+    public void Conjured_Item_Degrades_By_4_Quality_When_Expired()
+    {
+        // Arrange
+        var items = new Item { Name = "Conjuring Mana Cake", SellIn = 0, Quality = 20 };
+        var np = new Program();
+        np.Items = new List<Item> { items };
+
+        // Act
+        np.UpdateQuality();
+
+        // Assert
+        np.Items[0].Name.Should().Be("Conjuring Mana Cake");
+        np.Items[0].SellIn.Should().Be(-1);
+        np.Items[0].Quality.Should().Be(16);
+    }
 }
