@@ -60,14 +60,8 @@ namespace GildedRose
         public void AlterQuality(Item item, int qualityChange)
         {
             item.Quality += qualityChange;
-            if (item.Quality > 50)
-            {
-                item.Quality = 50;
-            }
-            if (item.Quality < 0)
-            {
-                item.Quality = 0;
-            }
+            if (item.Quality > 50) item.Quality = 50;
+            if (item.Quality < 0) item.Quality = 0;
         }
 
         public void UpdateQuality()
@@ -93,9 +87,6 @@ namespace GildedRose
                             else if (item.SellIn < 10) qualityChange = 2;
                             AlterQuality(item, qualityChange);
                         }
-                    break;
-                    case "Sulfuras, Hand of Ragnaros":
-                        // do nothing
                     break;
                     case "Conjuring Mana Cake":
                         AlterQuality(item, expired ? -4 : -2);
