@@ -39,13 +39,7 @@ public class Program
 
     }
 
-    public void UpdateQuality()
-    {
-        foreach (var item in Items)
-        {
-            item.Update();
-        }
-    }
+    public void UpdateQuality() => Items.ToList().ForEach(x => x.Update());
 
     public Item CreateItem(String name, int sellIn, int quality)
     {
