@@ -6,9 +6,9 @@ public class ProgramTests
     public void Normal_Item_Degrades_By_1_Quality_When_Not_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Normal Item", SellIn = 10, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Normal Item", 10, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -23,9 +23,9 @@ public class ProgramTests
     public void Normal_Item_Degrades_By_2_Quality_When_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Normal Item", SellIn = 0, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Normal Item", 0, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -40,9 +40,9 @@ public class ProgramTests
     public void Aged_Brie_Increases_By_1_Quality_When_Not_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Aged Brie", SellIn = 10, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Aged Brie", 10, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -57,9 +57,9 @@ public class ProgramTests
     public void Aged_Brie_Increases_By_2_Quality_When_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Aged Brie", SellIn = 0, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Aged Brie", 0, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -74,9 +74,9 @@ public class ProgramTests
     public void Legendary_Item_Degrades_only_by_SellIn()
     {
         //Arrange
-        var items = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Sulfuras, Hand of Ragnaros", 0, 80);
+        np.Items = new List<Item> { item };
         
         //Act
         np.UpdateQuality();
@@ -92,9 +92,9 @@ public class ProgramTests
     public void Item_Quality_Cannot_Be_Higher_Than_50()
     {
         // Arrange
-        var items = new Item { Name = "Aged Brie", SellIn = 10, Quality = 50 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Aged Brie", 10, 50);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -109,9 +109,9 @@ public class ProgramTests
     public void Backstage_Pass_Increase_By_1_When_SellIn_More_Than_10()
     {
         // Arrange
-        var items = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 15, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -126,9 +126,9 @@ public class ProgramTests
     public void Backstage_Pass_Increase_By_2_When_SellIn_Less_Than_10_Days()
     {
         // Arrange
-        var items = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 9, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Backstage passes to a TAFKAL80ETC concert", 9, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -143,9 +143,9 @@ public class ProgramTests
     public void Backstage_Pass_Increase_By_3_When_SellIn_Less_Than_5_Days()
     {
         // Arrange
-        var items = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 4, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Backstage passes to a TAFKAL80ETC concert", 4, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -160,9 +160,9 @@ public class ProgramTests
     public void Backstage_Pass_Quality_0_When_Concert_Done()
     {
         // Arrange
-        var items = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Backstage passes to a TAFKAL80ETC concert", 0, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -177,9 +177,9 @@ public class ProgramTests
     public void Conjured_Item_Degrades_By_2_Quality_When_Not_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Conjuring Mana Cake", SellIn = 10, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Conjuring Mana Cake", 10, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
@@ -194,9 +194,9 @@ public class ProgramTests
     public void Conjured_Item_Degrades_By_4_Quality_When_Expired()
     {
         // Arrange
-        var items = new Item { Name = "Conjuring Mana Cake", SellIn = 0, Quality = 20 };
         var np = new Program();
-        np.Items = new List<Item> { items };
+        var item = np.CreateItem("Conjuring Mana Cake", 0, 20);
+        np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
