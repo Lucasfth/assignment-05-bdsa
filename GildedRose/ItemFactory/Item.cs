@@ -13,11 +13,13 @@ namespace GildedRose
     */
     public abstract class Item
     {
-        public bool isConjured = false;
+        protected bool _IsConjured = false;
         public string Name { get; set; }
         public int SellIn { get; set; }
         public int Quality { get; set; }
 
         public abstract void Update();
+
+        public void IsConjured() => _IsConjured = true;
     }
 }

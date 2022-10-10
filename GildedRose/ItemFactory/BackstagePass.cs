@@ -16,7 +16,7 @@ public class BackstagePass : Item
         }
 
         int factor = 1;
-        if (this.isConjured) factor = 2;
+        if (_IsConjured) factor = 2;
 
         if (this.SellIn < 0) this.Quality = 0;
         else if (this.SellIn < 5) this.Quality += 3 * factor;

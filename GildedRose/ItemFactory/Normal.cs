@@ -16,7 +16,7 @@ public class Normal : Item
         }
 
         int factor = 1;
-        if (this.isConjured) factor = 2;
+        if (_IsConjured) factor = 2;
 
         if (this.SellIn < 0) this.Quality -= 2 * factor;
         else this.Quality -= 1 * factor;

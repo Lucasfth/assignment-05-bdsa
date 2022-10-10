@@ -61,7 +61,7 @@ public class Program
             item = new Normal() { Name = name, SellIn = sellIn, Quality = quality };
         
         if (name.ToLower().Contains("conjuring"))
-            item.isConjured = true;
+            item.IsConjured();
         
         return item;
     }
