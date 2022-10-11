@@ -35,12 +35,12 @@ public class Program
                 Console.WriteLine(app.Items[j].Name + ", " + app.Items[j].SellIn + ", " + app.Items[j].Quality);
             }
             Console.WriteLine("");
-            app.UpdateQuality();
+            app.UpdateItems();
         }
 
     }
 
-    public void UpdateQuality() => Items?.ToList().ForEach(x => x.Update());
+    public void UpdateItems() => Items?.ToList().ForEach(x => x.Update());
 
     public Item CreateItem(String name, int sellIn, int quality)
     {

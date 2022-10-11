@@ -11,7 +11,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Normal Item");
@@ -28,7 +28,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Normal Item");
@@ -45,7 +45,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Aged Brie");
@@ -62,7 +62,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Aged Brie");
@@ -79,7 +79,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
         
         //Act
-        np.UpdateQuality();
+        np.UpdateItems();
         
         //Assert
         np.Items[0].Name.Should().Be("Sulfuras, Hand of Ragnaros");
@@ -97,7 +97,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Aged Brie");
@@ -114,7 +114,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Backstage passes to a TAFKAL80ETC concert");
@@ -131,7 +131,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Backstage passes to a TAFKAL80ETC concert");
@@ -148,7 +148,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Backstage passes to a TAFKAL80ETC concert");
@@ -165,7 +165,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Backstage passes to a TAFKAL80ETC concert");
@@ -182,7 +182,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Conjured Mana Cake");
@@ -199,7 +199,7 @@ public class ProgramTests
         np.Items = new List<Item> { item };
 
         // Act
-        np.UpdateQuality();
+        np.UpdateItems();
 
         // Assert
         np.Items[0].Name.Should().Be("Conjured Mana Cake");
