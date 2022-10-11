@@ -20,6 +20,6 @@ namespace GildedRose
 
         public abstract void Update();
 
-        public void IsConjured() => _IsConjured = true;
+        public void SetConjuredTrue() => _IsConjured = true;
     }
 }
