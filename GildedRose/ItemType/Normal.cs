@@ -1,6 +1,6 @@
-namespace GildedRose;
+namespace GildedRose.ItemType;
 
-public class BackstagePass : Item
+public class Normal : Item
 {
     public override void Update()
     {
@@ -18,9 +18,7 @@ public class BackstagePass : Item
         int factor = 1;
         if (_IsConjured) factor = 2;
 
-        if (this.SellIn < 0) this.Quality = 0;
-        else if (this.SellIn < 5) this.Quality += 3 * factor;
-        else if (this.SellIn < 10) this.Quality += 2 * factor;
-        else this.Quality += 1 * factor;
+        if (this.SellIn < 0) this.Quality -= 2 * factor;
+        else this.Quality -= 1 * factor;
     }
 }

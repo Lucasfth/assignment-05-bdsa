@@ -1,6 +1,6 @@
-namespace GildedRose;
+namespace GildedRose.ItemType;
 
-public class Normal : Item
+public class Cheese : Item
 {
     public override void Update()
     {
@@ -14,11 +14,11 @@ public class Normal : Item
             this.Quality = 0;
             return;
         }
-
+        
         int factor = 1;
         if (_IsConjured) factor = 2;
 
-        if (this.SellIn < 0) this.Quality -= 2 * factor;
-        else this.Quality -= 1 * factor;
+        if (this.SellIn < 0) this.Quality += 2 * factor;
+        else this.Quality += 1 * factor;
     }
 }
