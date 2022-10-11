@@ -4,7 +4,7 @@
 
 We have decided to change Item to an abstract class, and have the different itemtypes inherit common behavior and functions. This is done as it is easier to extend with different itemtypes in the future, while still maintaining that every item is updated through the same `Update()` function.
 
-For a refactoring without changing the Item class, refer to the following commit: 052e2f2aea8f163f82f65c30af054ee87ac2bb44
+For a refactoring without changing the Item class, look at the "unmodified-item-solution"-branch in github
 
 ## C♯: Gilded Rose Refactoring Kata
 
