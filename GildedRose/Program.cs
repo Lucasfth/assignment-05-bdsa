@@ -5,7 +5,7 @@ namespace GildedRose;
 
 public class Program
 {
-    public IList<Item> Items;
+    public IList<Item>? Items;
     static void Main(string[] args)
     {
         System.Console.WriteLine("OMGHAI!");
@@ -39,22 +39,23 @@ public class Program
 
     }
 
-    public void UpdateQuality() => Items.ToList().ForEach(x => x.Update());
+    public void UpdateQuality() => Items?.ToList().ForEach(x => x.Update());
 
     public Item CreateItem(String name, int sellIn, int quality)
     {
         Item item;
+        var nameLower = name.ToLower();
         
-        if (name.ToLower().Contains("aged"))
+        if (nameLower.Contains("aged"))
             item = new Cheese() { Name = name, SellIn = sellIn, Quality = quality };
-        else if (name.ToLower().Contains("backstage"))
+        else if (nameLower.Contains("backstage"))
             item = new BackstagePass() { Name = name, SellIn = sellIn, Quality = quality };
-        else if (name.ToLower().Contains("sulfuras"))
+        else if (nameLower.Contains("sulfuras"))
             item = new Legendary() { Name = name, SellIn = sellIn, Quality = quality };
         else
             item = new Normal() { Name = name, SellIn = sellIn, Quality = quality };
         
-        if (name.ToLower().Contains("conjuring"))
+        if (nameLower.Contains("conjuring"))
             item.IsConjured();
         
         return item;

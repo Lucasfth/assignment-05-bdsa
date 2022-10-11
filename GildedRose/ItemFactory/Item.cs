@@ -14,7 +14,7 @@ namespace GildedRose
     public abstract class Item
     {
         protected bool _IsConjured = false;
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int SellIn { get; set; }
         public int Quality { get; set; }
 
