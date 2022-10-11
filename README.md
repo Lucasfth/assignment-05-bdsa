@@ -1,5 +1,11 @@
 # Assignment #5
 
+## Changes to the Item class
+
+We have decided to change Item to an abstract class, and have the different itemtypes inherit common behavior and functions. This is done as it is easier to extend with different itemtypes in the future, while still maintaining that every item is updated through the same `Update()` function.
+
+For a refactoring without changing the Item class, refer to the following commit: 052e2f2aea8f163f82f65c30af054ee87ac2bb44
+
 ## C♯: Gilded Rose Refactoring Kata
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a
@@ -13,7 +19,7 @@ can begin selling a new category of items. First an introduction to our
 system:
 
 - All items have a SellIn value which denotes the number of days we have
-to sell the item
+  to sell the item
 - All items have a Quality value which denotes how valuable the item is
 - At the end of each day our system lowers both values for every item
 
@@ -24,11 +30,11 @@ Pretty simple, right? Well this is where it gets interesting:
 - "Aged Brie" actually increases in Quality the older it gets
 - The Quality of an item is never more than 50
 - "Sulfuras", being a legendary item, never has to be sold or decreases
-in Quality
+  in Quality
 - "Backstage passes", like aged brie, increases in Quality as it's SellIn
-value approaches; Quality increases by 2 when there are 10 days or less
-and by 3 when there are 5 days or less but Quality drops to 0 after the
-concert
+  value approaches; Quality increases by 2 when there are 10 days or less
+  and by 3 when there are 5 days or less but Quality drops to 0 after the
+  concert
 
 We have recently signed a supplier of conjured items. This requires an
 update to our system:
@@ -56,7 +62,7 @@ Then refactor the code to support "Conjured".
 
 You might want to consider extracting to smaller methods and afterwards implementing small classes using polymorphism.
 
-*The rule about not altering things due to the goblin in the corner may be tweaked if you can defend it...*
+_The rule about not altering things due to the goblin in the corner may be tweaked if you can defend it..._
 
 ### Code Coverage
 
@@ -66,7 +72,7 @@ To calculate code coverage on this project using Coverlet you can run:
 dotnet test /p:CollectCoverage=true
 ```
 
-*Aim for 95-100% code coverage before you start refactoring!*
+_Aim for 95-100% code coverage before you start refactoring!_
 
 ### Notes
 
