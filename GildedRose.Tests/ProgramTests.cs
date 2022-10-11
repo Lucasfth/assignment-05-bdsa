@@ -358,4 +358,17 @@ public class ProgramTests
         np.Items[0].SellIn.Should().Be(39);
         np.Items[0].Quality.Should().Be(49);
     }
+
+    [Fact]
+    public void No_Item_Should_Not_Be_Updated() 
+    {
+        // Arrange
+        var np = new Program();
+
+        // Act
+        np.UpdateItems();
+
+        // Assert
+        np.Items.Should().BeNull();
+    }
 }
