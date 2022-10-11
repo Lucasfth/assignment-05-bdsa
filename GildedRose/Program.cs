@@ -56,7 +56,7 @@ public class Program
         else
             item = new Normal() { Name = name, SellIn = sellIn, Quality = quality };
         
-        if (nameLower.Contains("conjured")) item.SetConjuredTrue();
+        if (nameLower.Contains("conjured")) item.SetConjured();
         
         return item;
     }

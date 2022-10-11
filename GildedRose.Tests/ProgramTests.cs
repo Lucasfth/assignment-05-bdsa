@@ -206,4 +206,21 @@ public class ProgramTests
         np.Items[0].SellIn.Should().Be(-1);
         np.Items[0].Quality.Should().Be(16);
     }
+
+    [Fact]
+    public void Normal_Item_Degrades_By_1_When_Quality_Is_50_And_Not_Expired()
+    {
+        // Arrange
+        var np = new Program();
+        var item = np.CreateItem("Normal item",40,50);
+        np.Items = new List<Item> { item };
+
+        // Act
+        np.UpdateItems();
+
+        // Assert
+        np.Items[0].Name.Should().Be("Normal item");
+        np.Items[0].SellIn.Should().Be(39);
+        np.Items[0].Quality.Should().Be(49);
+    }
 }
