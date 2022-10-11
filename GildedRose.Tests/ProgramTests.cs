@@ -188,6 +188,23 @@ public class ProgramTests
         np.Items[0].SellIn.Should().Be(9);
         np.Items[0].Quality.Should().Be(50);
     }
+
+    [Fact]
+    public void Item_Quality_Cannot_Be_Negative()
+    {
+        // Arrange
+        var np = new Program();
+        var item = np.CreateItem("Normal Item", 10, 0);
+        np.Items = new List<Item> { item };
+
+        // Act
+        np.UpdateItems();
+
+        // Assert
+        np.Items[0].Name.Should().Be("Normal Item");
+        np.Items[0].SellIn.Should().Be(9);
+        np.Items[0].Quality.Should().Be(0);
+    }
     
     [Fact]
     public void Backstage_Pass_Increase_By_1_Quality_When_SellIn_More_Than_10()
