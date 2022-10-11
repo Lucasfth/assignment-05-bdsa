@@ -22,9 +22,9 @@ namespace GildedRose
 
         public virtual void AlterQuality(int amount)
         {
-            this.Quality += amount;
-            if (50 < this.Quality) this.Quality = 50;
-            if (this.Quality < 0) this.Quality = 0;
+            Quality += amount;
+            if (50 < Quality) Quality = 50;
+            if (Quality < 0) Quality = 0;
         }
 
         public void SetConjured(bool isConjured = true) => IsConjured = isConjured;
