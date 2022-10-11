@@ -178,14 +178,14 @@ public class ProgramTests
     {
         // Arrange
         var np = new Program();
-        var item = np.CreateItem("Conjuring Mana Cake", 10, 20);
+        var item = np.CreateItem("Conjured Mana Cake", 10, 20);
         np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
 
         // Assert
-        np.Items[0].Name.Should().Be("Conjuring Mana Cake");
+        np.Items[0].Name.Should().Be("Conjured Mana Cake");
         np.Items[0].SellIn.Should().Be(9);
         np.Items[0].Quality.Should().Be(18);
     }
@@ -195,14 +195,14 @@ public class ProgramTests
     {
         // Arrange
         var np = new Program();
-        var item = np.CreateItem("Conjuring Mana Cake", 0, 20);
+        var item = np.CreateItem("Conjured Mana Cake", 0, 20);
         np.Items = new List<Item> { item };
 
         // Act
         np.UpdateQuality();
 
         // Assert
-        np.Items[0].Name.Should().Be("Conjuring Mana Cake");
+        np.Items[0].Name.Should().Be("Conjured Mana Cake");
         np.Items[0].SellIn.Should().Be(-1);
         np.Items[0].Quality.Should().Be(16);
     }
